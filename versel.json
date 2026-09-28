@@ -1,5 +1,5 @@
 {
   "routes": [
-    { "src": "/", "dest": "/rightagents_pricing_page_v1.html" }
+    { "src": "/", "dest": "/RightAgents(v5)" }
   ]
 }
