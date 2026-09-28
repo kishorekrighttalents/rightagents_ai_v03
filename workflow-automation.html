@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RightAgents — Resilient Agentic Workflows</title>
+<!-- Tailwind CSS CDN with forms and container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          },
+          colors: {
+            neutral: {
+              950: '#0a0a0a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- Typography & Global Custom Tweaks -->
+<style data-purpose="typography">
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&display=swap');
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: #111827;
+      background-color: #ffffff;
+    }
+    .tracking-tight-custom {
+      letter-spacing: -0.035em;
+    }
+  </style>
+<link data-snapdom="injected-import" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&amp;display=swap" rel="stylesheet"/><link rel="stylesheet" href="typography.css"></head>
+<body class="bg-white text-gray-900 selection:bg-black selection:text-white">
+<!-- BEGIN: MainHeader -->
+<header class="w-full bg-white border-b border-transparent sticky top-0 z-50"><div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between" style="min-height: 88px; height: auto; padding-top: 12px; padding-bottom: 12px;">
+<div class="flex items-center space-x-10">
+<a class="flex items-center space-x-2.5 text-gray-900 font-bold text-lg tracking-tight" href="#"><span class="text-xl font-bold tracking-tight text-neutral-900">RightAgents</span></a>
+<nav class="hidden md:flex items-center space-x-7 text-sm font-medium text-gray-700">
+<div class="relative group">
+<a class="flex items-center gap-1.5 hover:text-[#6C4DFF] transition-colors" href="#">
+<span>Solutions</span>
+<svg class="h-4 w-4 transition-transform group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+</a>
+<div class="absolute left-0 top-full mt-2 hidden w-72 rounded-2xl border border-neutral-200 bg-white p-2 shadow-xl shadow-neutral-200/60 group-hover:block group-focus-within:block">
+<a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="data.html">Data</a>
+<a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="workflow-automation.html">Workflow Automation</a>
+<a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="agentic-integration.html">Agentic Integration</a>
+<a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="custom-agent-development.html">Custom Agent Development</a>
+</div>
+</div>
+<div class="relative group">
+<a class="flex items-center gap-1.5 hover:text-[#6C4DFF] transition-colors" href="#">
+<span>Products</span>
+<svg class="h-4 w-4 transition-transform group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+</a>
+<div class="absolute left-0 top-full mt-2 hidden w-72 rounded-2xl border border-neutral-200 bg-white p-2 shadow-xl shadow-neutral-200/60 group-hover:block group-focus-within:block">
+<a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="blog-refresher.html">Blog Refresher</a>
+<a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="blog-creator.html">Blog Creator</a>
+<a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="pricing.html">Pricing</a>
+</div>
+</div>
+<a class="hover:text-[#6C4DFF] transition-colors" href="resources.html">Resources</a>
+<a class="hover:text-[#6C4DFF] transition-colors" href="about.html">About</a>
+</nav>
+<details class="relative md:hidden" style="list-style:none">
+  <summary class="flex cursor-pointer list-none items-center gap-1.5 rounded-full border border-neutral-200 px-3 py-2 text-sm font-medium text-neutral-700">
+    Solutions
+    <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+  </summary>
+  <div class="absolute right-0 top-full mt-2 w-72 rounded-2xl border border-neutral-200 bg-white p-2 shadow-xl shadow-neutral-200/60">
+    <a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="data.html">Data</a>
+    <a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="workflow-automation.html">Workflow Automation</a>
+    <a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="agentic-integration.html">Agentic Integration</a>
+    <a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="custom-agent-development.html">Custom Agent Development</a>
+  </div>
+</details>
+</div>
+<div class="flex items-center space-x-4">
+<a class="text-sm font-medium text-gray-700 hover:text-[#6C4DFF] px-3 py-2 transition-colors" href="#">
+          Talk to Us
+        </a>
+<a class="inline-flex items-center justify-center text-sm font-medium bg-[#6C4DFF] text-white px-5 py-2 rounded-full hover:bg-[#5838ea] transition-colors shadow-sm" href="#">
+          Schedule a Call
+        </a>
+</div>
+</div></header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainContent -->
+<main>
+<!-- BEGIN: HeroSection -->
+<section class="max-w-6xl mx-auto px-6 pt-24 pb-28 md:pt-32 md:pb-36 bg-gradient-to-b from-[#F5F2FF] via-white to-white relative overflow-hidden" data-purpose="hero-section">
+<div class="max-w-3xl">
+<!-- Hero Title -->
+<h1 class="text-5xl sm:text-6xl md:text-[68px] leading-[1.08] font-semibold tracking-tight-custom text-black">
+          Replace brittle RPA with reasoning agentic workflows.
+        </h1>
+<!-- Hero Description -->
+<p class="mt-8 text-lg sm:text-[19px] leading-relaxed text-gray-600 max-w-2xl font-normal">
+          Traditional scripts break the moment something changes. We build self-healing workflows that reason through edge cases and execute end-to-end — reliably.
+        </p>
+<!-- CTA Buttons -->
+<div class="mt-9 flex flex-wrap items-center gap-3"><a class="inline-flex items-center justify-center text-sm font-medium bg-[#6C4DFF] text-white px-6 py-2.5 rounded-full hover:bg-[#5838ea] transition-all shadow-sm" href="#">
+            Talk to Us
+          </a>
+<a class="inline-flex items-center justify-center text-sm font-medium bg-white text-gray-800 border border-gray-300 px-6 py-2.5 rounded-full hover:border-[#6C4DFF] hover:text-[#6C4DFF] hover:bg-[#F0EDFF]/30 transition-all" href="#">
+            Schedule a Call
+          </a></div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: ProblemAndMetricsSection -->
+<section class="w-full bg-[#F5F2FF] py-24 md:py-28" data-purpose="problem-metrics"><div class="max-w-6xl mx-auto px-6"><div class="max-w-2xl mb-16"><h2 class="text-3xl md:text-[38px] leading-[1.2] font-semibold tracking-tight-custom text-black">Why traditional robotic process automation (RPA) fails the modern enterprise</h2><p class="mt-5 text-base md:text-[17px] leading-relaxed text-gray-600">Rules-based bots were built for static systems. Today, UI updates, missing fields, and varied vendor formats turn maintenance into a permanent tax.</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8"><div class="bg-white rounded-2xl p-8 border border-white shadow-sm space-y-3"><div class="text-5xl md:text-[54px] font-semibold text-[#6C4DFF] tracking-tight leading-none">73%</div><p class="text-sm text-gray-600 leading-normal max-w-xs font-normal"><span class="font-medium text-gray-900">Maintenance drain</span> — engineering time spent patching brittle scripts broken by routine updates.</p></div><div class="bg-white rounded-2xl p-8 border border-white shadow-sm space-y-3"><div class="text-5xl md:text-[54px] font-semibold text-[#6C4DFF] tracking-tight leading-none">5.2×</div><p class="text-sm text-gray-600 leading-normal max-w-xs font-normal"><span class="font-medium text-gray-900">Faster exceptions</span> — resolved through reasoning, not raised as unhandled errors.</p></div><div class="bg-white rounded-2xl p-8 border border-white shadow-sm space-y-3"><div class="text-5xl md:text-[54px] font-semibold text-[#6C4DFF] tracking-tight leading-none">60–90d</div><p class="text-sm text-gray-600 leading-normal max-w-xs font-normal"><span class="font-medium text-gray-900">To production.</span> No multi-year consultancy lock-ins.</p></div></div></div></section>
+<!-- END: ProblemAndMetricsSection -->
+<!-- BEGIN: ThreePillarsSection -->
+<section class="w-full bg-white py-24 md:py-28" data-purpose="three-pillars"><div class="max-w-6xl mx-auto px-6"><div class="mb-14"><h2 class="text-3xl md:text-[38px] leading-[1.2] font-semibold tracking-tight-custom text-black">The Three Pillars of Resilient<br class="hidden sm:inline"/> Workflow Automation</h2><p class="mt-4 text-base md:text-[17px] text-gray-600">Built for zero downtime, strict data residency, and deterministic governance.</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-6"><div class="bg-[#F6F6F4] border border-[#E6E6E3] hover:border-[#6C4DFF] rounded-2xl p-8 transition-all duration-200 flex flex-col justify-between group"><div><div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#F0EDFF] text-[#6C4DFF] mb-6">Pillar 01</div><h3 class="text-lg font-semibold text-gray-900 group-hover:text-[#6C4DFF] transition-colors mb-3">Multi-Agent Reasoning &amp; Orchestration</h3><p class="text-sm text-gray-600 leading-relaxed">Workflows are split into supervisor-led micro-agents that plan, reason, and coordinate their handoffs.</p></div></div><div class="bg-[#F6F6F4] border border-[#E6E6E3] hover:border-[#6C4DFF] rounded-2xl p-8 transition-all duration-200 flex flex-col justify-between group"><div><div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#F0EDFF] text-[#6C4DFF] mb-6">Pillar 02</div><h3 class="text-lg font-semibold text-gray-900 group-hover:text-[#6C4DFF] transition-colors mb-3">Dynamic Self-Healing &amp; Exception Handling</h3><p class="text-sm text-gray-600 leading-relaxed">When APIs or schemas shift, agents adapt and self-heal — no crashes, no developer intervention.</p></div></div><div class="bg-[#F6F6F4] border border-[#E6E6E3] hover:border-[#6C4DFF] rounded-2xl p-8 transition-all duration-200 flex flex-col justify-between group"><div><div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#F0EDFF] text-[#6C4DFF] mb-6">Pillar 03</div><h3 class="text-lg font-semibold text-gray-900 group-hover:text-[#6C4DFF] transition-colors mb-3">Governed Human-in-the-Loop Cockpit</h3><p class="text-sm text-gray-600 leading-relaxed">Anything below your confidence threshold routes to a human reviewer, with full reasoning visible.</p></div></div></div></div></section>
+<!-- END: ThreePillarsSection -->
+<!-- BEGIN: NativeConnectorsSection -->
+<section class="w-full bg-[#F5F2FF] py-24 md:py-28" data-purpose="integrations"><div class="max-w-6xl mx-auto px-6"><div class="mb-10"><h2 class="text-3xl md:text-[38px] leading-[1.2] font-semibold tracking-tight-custom text-black">Native connectors for your<br class="hidden sm:inline"/> established core infrastructure</h2><p class="mt-4 text-base md:text-[17px] text-gray-600">Works with what you run today.</p></div><div class="flex flex-wrap gap-2.5 max-w-4xl pt-2"><span class="inline-flex items-center px-4 py-2 rounded-full border border-gray-300 bg-white text-xs md:text-sm font-medium text-gray-800 shadow-sm hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-pointer">Google ADK</span><span class="inline-flex items-center px-4 py-2 rounded-full border border-gray-300 bg-white text-xs md:text-sm font-medium text-gray-800 shadow-sm hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-pointer">Vertex AI</span><span class="inline-flex items-center px-4 py-2 rounded-full border border-gray-300 bg-white text-xs md:text-sm font-medium text-gray-800 shadow-sm hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-pointer">Salesforce</span><span class="inline-flex items-center px-4 py-2 rounded-full border border-gray-300 bg-white text-xs md:text-sm font-medium text-gray-800 shadow-sm hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-pointer">SAP S/4HANA</span><span class="inline-flex items-center px-4 py-2 rounded-full border border-gray-300 bg-white text-xs md:text-sm font-medium text-gray-800 shadow-sm hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-pointer">Oracle NetSuite</span><span class="inline-flex items-center px-4 py-2 rounded-full border border-gray-300 bg-white text-xs md:text-sm font-medium text-gray-800 shadow-sm hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-pointer">Workday HCM</span><span class="inline-flex items-center px-4 py-2 rounded-full border border-gray-300 bg-white text-xs md:text-sm font-medium text-gray-800 shadow-sm hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-pointer">ServiceNow</span><span class="inline-flex items-center px-4 py-2 rounded-full border border-gray-300 bg-white text-xs md:text-sm font-medium text-gray-800 shadow-sm hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-pointer">Snowflake</span><span class="inline-flex items-center px-4 py-2 rounded-full border border-gray-300 bg-white text-xs md:text-sm font-medium text-gray-800 shadow-sm hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-pointer">BigQuery</span><span class="inline-flex items-center px-4 py-2 rounded-full border border-gray-300 bg-white text-xs md:text-sm font-medium text-gray-800 shadow-sm hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-pointer">Coupa</span><span class="inline-flex items-center px-4 py-2 rounded-full border border-gray-300 bg-white text-xs md:text-sm font-medium text-gray-800 shadow-sm hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-pointer">Epic</span><span class="inline-flex items-center px-4 py-2 rounded-full border border-gray-300 bg-white text-xs md:text-sm font-medium text-gray-800 shadow-sm hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-pointer">Cerner</span><span class="inline-flex items-center px-4 py-2 rounded-full border border-gray-300 bg-white text-xs md:text-sm font-medium text-gray-800 shadow-sm hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-pointer">FHIR</span></div></div></section>
+<!-- END: NativeConnectorsSection -->
+<!-- BEGIN: FAQSection -->
+<section class="w-full bg-white py-24 md:py-28" data-purpose="faq"><div class="max-w-6xl mx-auto px-6"><div class="mb-12"><h2 class="text-3xl md:text-[38px] leading-[1.2] font-semibold tracking-tight-custom text-black">Frequently asked</h2></div><div class="border-t border-gray-200 divide-y divide-gray-200"><details class="group py-6 cursor-pointer list-none [&amp;::-webkit-details-marker]:hidden"><summary class="flex justify-between items-center text-left"><span class="text-base font-normal text-gray-900 group-hover:text-black">How is this different from UiPath or Zapier?</span><span class="ml-6 flex-shrink-0 text-gray-400 group-hover:text-gray-600 text-xl font-light leading-none">+</span></summary><div class="mt-4 pr-12 text-sm text-gray-600 leading-relaxed">Traditional RPA like UiPath and rule platforms like Zapier rely on static UI selectors and brittle API step chains. RightAgents uses supervisor-led agent networks that reason about dynamic changes, infer context on anomalies, and autonomously self-heal workflows without hard failure interruptions.</div></details><details class="group py-6 cursor-pointer list-none [&amp;::-webkit-details-marker]:hidden"><summary class="flex justify-between items-center text-left"><span class="text-base font-normal text-gray-900 group-hover:text-black">What happens with an edge case the agent hasn't seen?</span><span class="ml-6 flex-shrink-0 text-gray-400 group-hover:text-gray-600 text-xl font-light leading-none">+</span></summary><div class="mt-4 pr-12 text-sm text-gray-600 leading-relaxed">When an unknown edge case encounters low confidence scores, the system gracefully hands off the ticket into the Governed Human-in-the-Loop Cockpit. The human supervisor is shown the exact chain of thought, makes the decision in one click, and the agent permanently learns the pattern.</div></details><details class="group py-6 cursor-pointer list-none [&amp;::-webkit-details-marker]:hidden"><summary class="flex justify-between items-center text-left"><span class="text-base font-normal text-gray-900 group-hover:text-black">Can agents execute unauthorized financial writes?</span><span class="ml-6 flex-shrink-0 text-gray-400 group-hover:text-gray-600 text-xl font-light leading-none">+</span></summary><div class="mt-4 pr-12 text-sm text-gray-600 leading-relaxed">No. All writes and critical mutations adhere strictly to deterministic enterprise governance policies and RBAC bounds configured by your security team. High-stakes actions trigger mandatory dual-custody or authorized sign-off routines.</div></details></div><div class="border-t border-gray-200"></div></div></section>
+<!-- END: FAQSection -->
+<!-- BEGIN: CallToActionBanner -->
+<section class="max-w-6xl mx-auto px-6 pb-28 md:pb-36" data-purpose="cta-card"><div class="bg-[#0B0B0B] text-white rounded-3xl p-10 md:p-16 lg:p-20 relative overflow-hidden border border-neutral-800">
+<div class="max-w-2xl relative z-10">
+<h2 class="text-3xl md:text-5xl leading-[1.12] font-semibold tracking-tight-custom text-white">
+            Ready to turn brittle workflows into resilient autonomous intelligence?
+          </h2>
+<p class="mt-6 text-sm md:text-base text-gray-400 leading-relaxed font-normal max-w-xl">
+            Book a technical consultation. We'll map your highest-friction processes and send you an execution roadmap in 5 business days.
+          </p>
+<div class="mt-10 flex flex-wrap items-center gap-3">
+<a class="inline-flex items-center justify-center text-sm font-semibold bg-[#6C4DFF] text-white px-6 py-3 rounded-full hover:bg-[#5838ea] transition-all shadow-sm" href="#">
+              Schedule Workflow Audit
+            </a>
+<a class="inline-flex items-center justify-center text-sm font-medium bg-neutral-900 text-gray-200 border border-neutral-700 px-6 py-3 rounded-full hover:border-[#6C4DFF] hover:text-white transition-colors" href="#">
+              Talk to Engineering Sales
+            </a>
+</div>
+</div>
+</div></section>
+<!-- END: CallToActionBanner -->
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: MainFooter -->
+<footer class="w-full border-t border-neutral-800 bg-[#0B0B0B] text-white pt-20 pb-16" data-purpose="footer">
+<div class="max-w-6xl mx-auto px-6">
+<div class="grid grid-cols-2 md:grid-cols-12 gap-10 md:gap-8 pb-16">
+<div class="col-span-2 md:col-span-4 pr-4">
+<span class="text-lg font-bold tracking-tight text-white mb-4 block">RightAgents</span>
+<p class="text-xs md:text-sm text-gray-400 leading-relaxed max-w-xs font-normal">
+            Building the Right Agents. Building Them Right. Building the Right Talent.
+          </p>
+</div>
+<div class="col-span-1 md:col-span-2">
+<h4 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Solutions</h4>
+<ul class="space-y-2.5 text-xs md:text-sm text-gray-300">
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="data.html">Data Intelligence</a></li>
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="workflow-automation.html">Workflow Automation</a></li>
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="agentic-integration.html">Agentic Integration</a></li>
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="custom-agent-development.html">Custom Agent Development</a></li>
+</ul>
+</div>
+<div class="col-span-1 md:col-span-2">
+<h4 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Products</h4>
+<ul class="space-y-2.5 text-xs md:text-sm text-gray-300">
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="blog-refresher.html">Blog Refresher</a></li>
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="blog-creator.html">Blog Creator</a></li>
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="pricing.html">Pricing</a></li>
+</ul>
+</div>
+<div class="col-span-1 md:col-span-2">
+<h4 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Company</h4>
+<ul class="space-y-2.5 text-xs md:text-sm text-gray-300">
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="resources.html">Resources</a></li>
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="about.html">About</a></li>
+</ul>
+</div>
+<div class="col-span-1 md:col-span-2">
+<h4 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Contact</h4>
+<ul class="space-y-2 text-xs md:text-sm text-gray-300"><li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="mailto:ram@rightagents.ai">ram@rightagents.ai</a></li>
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="mailto:hello@rightagents.ai">hello@rightagents.ai</a></li>
+<li class="pt-2">
+<div class="flex items-center gap-3 pt-1 text-gray-400">
+<a aria-label="X (formerly Twitter)" class="text-gray-400 hover:text-[#6C4DFF] transition-colors" href="#">
+<svg class="w-[18px] h-[18px] fill-current" viewbox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+</a>
+<a aria-label="LinkedIn" class="text-gray-400 hover:text-[#6C4DFF] transition-colors" href="#">
+<svg class="w-[18px] h-[18px] fill-current" viewbox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.78v8.37H6.46V10.9M7.86 6.32a1.62 1.62 0 0 0-1.63 1.62 1.62 1.62 0 0 0 1.63 1.62 1.62 1.62 0 0 0 1.62-1.62 1.62 1.62 0 0 0-1.62-1.62z"></path></svg>
+</a>
+<a aria-label="YouTube" class="text-gray-400 hover:text-[#6C4DFF] transition-colors" href="#">
+<svg class="w-[18px] h-[18px] fill-current" viewbox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
+</a>
+<a aria-label="Instagram" class="text-gray-400 hover:text-[#6C4DFF] transition-colors" href="#">
+<svg class="w-[18px] h-[18px] fill-current" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"></path></svg>
+</a>
+<a aria-label="Facebook" class="text-gray-400 hover:text-[#6C4DFF] transition-colors" href="#">
+<svg class="w-[18px] h-[18px] fill-current" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+</a>
+</div>
+</li></ul>
+</div>
+</div>
+<div class="pt-8 border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 gap-4">
+<div class="">© 2026 RightAgents.ai. All rights reserved.</div>
+<div class="flex items-center space-x-2">
+<a class="hover:text-[#6C4DFF] transition-colors" href="#">Privacy</a>
+<span class="">·</span>
+<a class="hover:text-[#6C4DFF] transition-colors" href="#">Terms</a>
+<span class="">·</span>
+<a class="hover:text-[#6C4DFF] transition-colors" href="#">Contact</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+</body></html>
