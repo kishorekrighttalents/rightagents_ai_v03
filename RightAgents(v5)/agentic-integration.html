@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+
+<html lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RightAgents - Enterprise Agentic Integration</title>
+<!-- Tailwind CSS v3 CDN with forms and container queries plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              black: '#0c0d0e',
+              gray: {
+                50: '#f9fafb',
+                100: '#f3f4f6',
+                200: '#e5e7eb',
+                300: '#d1d5db',
+                400: '#9ca3af',
+                500: '#6b7280',
+                600: '#4b5563',
+                700: '#374151',
+                800: '#1f2937',
+                900: '#111827',
+              }
+            }
+          },
+          letterSpacing: {
+            tighter: '-0.035em',
+            tight: '-0.02em',
+          }
+        }
+      }
+    }
+  </script>
+<!-- Google Font: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Custom Typography & Micro-adjustments -->
+<style data-purpose="base-styling">
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: #0c0d0e;
+      background-color: #ffffff;
+    }
+    ::selection {
+      background-color: #000000;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-white text-[#0c0d0e]">
+<!-- BEGIN: NavigationHeader -->
+<header class="w-full bg-white border-b border-gray-100 sticky top-0 z-50 transition-all duration-200" data-purpose="main-header"><div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 h-20 flex items-center justify-between" style="min-height: 96px;">
+<div class="flex items-center gap-12">
+<a aria-label="RightAgents Home" class="flex items-center gap-2.5 group focus:outline-none" href="#"><span class="text-xl font-bold tracking-tight text-neutral-900">RightAgents</span></a>
+<nav aria-label="Main Navigation" class="hidden md:flex items-center gap-8 text-[14.5px] font-medium text-brand-gray-600">
+<div class="relative group">
+<a class="flex items-center gap-1.5 hover:text-[#6C4DFF] transition-colors duration-150" href="#">
+<span>Solutions</span>
+<svg class="h-4 w-4 transition-transform group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+</a>
+<div class="absolute left-0 top-full mt-2 hidden w-72 rounded-2xl border border-neutral-200 bg-white p-2 shadow-xl shadow-neutral-200/60 group-hover:block group-focus-within:block">
+<a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="data.html">Data</a>
+<a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="workflow-automation.html">Workflow Automation</a>
+<a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="agentic-integration.html">Agentic Integration</a>
+<a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="custom-agent-development.html">Custom Agent Development</a>
+</div>
+</div>
+<div class="relative group">
+<a class="flex items-center gap-1.5 hover:text-[#6C4DFF] transition-colors duration-150" href="#">
+<span>Products</span>
+<svg class="h-4 w-4 transition-transform group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+</a>
+<div class="absolute left-0 top-full mt-2 hidden w-72 rounded-2xl border border-neutral-200 bg-white p-2 shadow-xl shadow-neutral-200/60 group-hover:block group-focus-within:block">
+<a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="blog-refresher.html">Blog Refresher</a>
+<a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="blog-creator.html">Blog Creator</a>
+<a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="pricing.html">Pricing</a>
+</div>
+</div>
+<a class="hover:text-[#6C4DFF] transition-colors duration-150" href="resources.html">Resources</a>
+<a class="hover:text-[#6C4DFF] transition-colors duration-150" href="about.html">About</a>
+</nav>
+<details class="relative md:hidden" style="list-style:none">
+  <summary class="flex cursor-pointer list-none items-center gap-1.5 rounded-full border border-neutral-200 px-3 py-2 text-sm font-medium text-neutral-700">
+    Solutions
+    <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+  </summary>
+  <div class="absolute right-0 top-full mt-2 w-72 rounded-2xl border border-neutral-200 bg-white p-2 shadow-xl shadow-neutral-200/60">
+    <a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="data.html">Data</a>
+    <a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="workflow-automation.html">Workflow Automation</a>
+    <a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="agentic-integration.html">Agentic Integration</a>
+    <a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="custom-agent-development.html">Custom Agent Development</a>
+  </div>
+</details>
+</div>
+<div class="flex items-center gap-3">
+<a class="text-[14px] font-medium text-black px-4 py-2 hover:text-[#6C4DFF] transition-colors duration-150" href="#talk">
+          Talk to Us
+        </a>
+<a class="text-[14px] font-medium text-white bg-[#6C4DFF] hover:bg-[#5b38ee] transition-colors duration-150 px-5 py-2.5 rounded-full shadow-sm" href="#schedule">
+          Schedule a Call
+        </a>
+</div>
+</div></header>
+<!-- END: NavigationHeader -->
+<!-- BEGIN: MainContent -->
+<main class="flex-grow">
+<!-- BEGIN: HeroSection -->
+<section class="pt-24 pb-20 md:pt-32 md:pb-28 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12" data-purpose="hero" style="background: radial-gradient(circle at 70% 50%, rgba(232,226,255,0.6) 0%, rgba(245,242,255,0.3) 40%, rgba(255,255,255,1) 70%);">
+<div class="max-w-4xl">
+<h1 class="text-4xl sm:text-5xl lg:text-[4.25rem] font-bold tracking-tighter leading-[1.08] text-black">
+          Bridge legacy<br class="hidden sm:inline"/>
+          enterprise systems<br class="hidden sm:inline"/>
+          with autonomous<br class="hidden sm:inline"/>
+          agentic intelligence.
+        </h1>
+<p class="mt-8 text-lg sm:text-[1.125rem] leading-relaxed text-brand-gray-600 max-w-2xl font-normal">
+          Your agents can't act on data they can't reach. We connect them to SAP, Salesforce, Oracle, and your internal systems — safely, in real time, with guardrails your security team will approve.
+        </p>
+<!-- Hero Action Buttons -->
+<div class="mt-10 flex flex-wrap items-center gap-3.5"><a class="text-[14.5px] font-medium text-white bg-[#6C4DFF] hover:bg-[#5b38ee] px-6 py-3 rounded-full transition-colors duration-150 shadow-sm" href="#talk">
+            Talk to Us
+          </a>
+<a class="text-[14.5px] font-medium text-brand-gray-700 bg-white hover:bg-[#F0EDFF] hover:text-[#6C4DFF] hover:border-[#6C4DFF] border border-gray-200 px-6 py-3 rounded-full transition-colors duration-150" href="#schedule">
+            Schedule a Call
+          </a></div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: ProblemAndDeterminismMetric -->
+<section class="py-24 md:py-28 bg-[#F5F2FF]" data-purpose="problem-and-metrics">
+<div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+<div class="max-w-3xl">
+<h2 class="text-3xl sm:text-[2.5rem] font-bold tracking-tight text-black leading-tight">
+            Legacy integration wasn't built<br class="hidden sm:inline"/>
+            for agents.
+          </h2>
+<p class="mt-5 text-[1.05rem] text-brand-gray-600 leading-relaxed max-w-2xl">
+            Standard iPaaS tools were designed for scheduled, human-triggered transfers. Agents need to call tools in real time, adapt when schemas shift, and never write bad data.
+          </p>
+</div>
+<!-- Metric Highlight -->
+<div class="mt-16 p-8 sm:p-10 bg-white rounded-2xl border border-[#E6E6E3] max-w-xl shadow-sm">
+<div class="text-5xl sm:text-[3.75rem] font-bold tracking-tight text-[#6C4DFF] leading-none">
+            99.99%
+          </div>
+<p class="mt-3 text-[14px] text-brand-gray-500 font-normal leading-normal">
+            execution determinism. Every<br class="hidden sm:inline"/>
+            write is validated before it lands.
+          </p>
+</div>
+</div>
+</section>
+<!-- END: ProblemAndDeterminismMetric -->
+<!-- BEGIN: PillarsSection -->
+<section class="py-20 md:py-28" data-purpose="three-pillars">
+<div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+<!-- Header -->
+<div class="max-w-3xl mb-16">
+<h2 class="text-3xl sm:text-[2.5rem] font-bold tracking-tight text-black leading-tight">
+            The Three Pillars of Enterprise<br class="hidden sm:inline"/>
+            Agentic Integration
+          </h2>
+<p class="mt-4 text-[1.05rem] text-brand-gray-600 font-normal">
+            Built for autonomous tool calling, schema hygiene, and governed state changes.
+          </p>
+</div>
+<!-- Pillars List -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Pillar 1: Universal Protocol Translation -->
+<div class="p-8 bg-white rounded-2xl border border-[#E6E6E3] hover:border-[#6C4DFF] transition-all duration-200 flex flex-col justify-between group" data-purpose="pillar-item">
+<div>
+<div class="w-10 h-10 rounded-xl bg-[#F0EDFF] text-[#6C4DFF] flex items-center justify-center font-bold text-lg mb-6 group-hover:scale-105 transition-transform">
+01
+</div>
+<h3 class="text-xl font-bold text-black tracking-tight mb-3 group-hover:text-[#6C4DFF] transition-colors">Universal Protocol Translation</h3>
+<p class="text-[15px] text-brand-gray-600 leading-relaxed">
+Native MCP and Google ADK bridges turn SAP, Salesforce, Oracle, and internal REST endpoints into clean LLM tool declarations. Automatic parameter sanitization included.
+</p>
+</div>
+<div class="flex flex-wrap gap-2 pt-6 mt-6 border-t border-[#E6E6E3]">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium text-[#6C4DFF] bg-[#F0EDFF]">
+Automatic OpenAPI → MCP tool generation
+</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium text-[#6C4DFF] bg-[#F0EDFF]">
+Zero-code hot reloading of enterprise schemas
+</span>
+</div>
+</div>
+<!-- Pillar 2: Dynamic Schema Pruning -->
+<div class="p-8 bg-white rounded-2xl border border-[#E6E6E3] hover:border-[#6C4DFF] transition-all duration-200 flex flex-col justify-between group" data-purpose="pillar-item">
+<div>
+<div class="w-10 h-10 rounded-xl bg-[#F0EDFF] text-[#6C4DFF] flex items-center justify-center font-bold text-lg mb-6 group-hover:scale-105 transition-transform">
+02
+</div>
+<h3 class="text-xl font-bold text-black tracking-tight mb-3 group-hover:text-[#6C4DFF] transition-colors">Dynamic Schema Pruning</h3>
+<p class="text-[15px] text-brand-gray-600 leading-relaxed">
+We send your agents only the fields they need — up to 70% fewer tokens per call, which means fewer hallucinations and lower bills.
+</p>
+</div>
+<div class="flex flex-wrap gap-2 pt-6 mt-6 border-t border-[#E6E6E3]">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium text-[#6C4DFF] bg-[#F0EDFF]">
+Intent-driven payload selection
+</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium text-[#6C4DFF] bg-[#F0EDFF]">
+Real-time context window optimization
+</span>
+</div>
+</div>
+<!-- Pillar 3: Governed Write-Back -->
+<div class="p-8 bg-white rounded-2xl border border-[#E6E6E3] hover:border-[#6C4DFF] transition-all duration-200 flex flex-col justify-between group" data-purpose="pillar-item">
+<div>
+<div class="w-10 h-10 rounded-xl bg-[#F0EDFF] text-[#6C4DFF] flex items-center justify-center font-bold text-lg mb-6 group-hover:scale-105 transition-transform">
+03
+</div>
+<h3 class="text-xl font-bold text-black tracking-tight mb-3 group-hover:text-[#6C4DFF] transition-colors">Governed Write-Back</h3>
+<p class="text-[15px] text-brand-gray-600 leading-relaxed">
+Every database write gets simulated first, tagged for idempotency, and escalated to a human if it crosses your risk threshold. Full audit trail on every mutation.
+</p>
+</div>
+<div class="flex flex-wrap gap-2 pt-6 mt-6 border-t border-[#E6E6E3]">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium text-[#6C4DFF] bg-[#F0EDFF]">
+Two-phase commit simulation before every write
+</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium text-[#6C4DFF] bg-[#F0EDFF]">
+Threshold-triggered human escalation
+</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: PillarsSection -->
+<!-- BEGIN: ConnectorEcosystem -->
+<section class="py-24 md:py-28 bg-[#F5F2FF]" data-purpose="connector-ecosystem">
+<div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+<h2 class="text-3xl sm:text-[2.5rem] font-bold tracking-tight text-black leading-tight">
+          Connector Ecosystem
+        </h2>
+<p class="mt-3 text-[1.05rem] text-brand-gray-600 font-normal">
+          Works with what you already run.
+        </p>
+<!-- Badges Grid -->
+<div class="mt-8 flex flex-wrap gap-3"><span class="px-5 py-2.5 rounded-full text-[13.5px] font-medium text-brand-gray-700 bg-white border border-[#E6E6E3] shadow-sm hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-colors cursor-pointer">
+            SAP
+          </span>
+<span class="px-5 py-2.5 rounded-full text-[13.5px] font-medium text-brand-gray-700 bg-white border border-[#E6E6E3] shadow-sm hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-colors cursor-pointer">
+            Salesforce
+          </span>
+<span class="px-5 py-2.5 rounded-full text-[13.5px] font-medium text-brand-gray-700 bg-white border border-[#E6E6E3] shadow-sm hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-colors cursor-pointer">
+            Oracle NetSuite
+          </span>
+<span class="px-5 py-2.5 rounded-full text-[13.5px] font-medium text-brand-gray-700 bg-white border border-[#E6E6E3] shadow-sm hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-colors cursor-pointer">
+            Snowflake
+          </span>
+<span class="px-5 py-2.5 rounded-full text-[13.5px] font-medium text-brand-gray-700 bg-white border border-[#E6E6E3] shadow-sm hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-colors cursor-pointer">
+            ServiceNow
+          </span>
+<span class="px-5 py-2.5 rounded-full text-[13.5px] font-medium text-brand-gray-700 bg-white border border-[#E6E6E3] shadow-sm hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-colors cursor-pointer">
+            Workday
+          </span>
+<span class="px-5 py-2.5 rounded-full text-[13.5px] font-medium text-brand-gray-700 bg-white border border-[#E6E6E3] shadow-sm hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-colors cursor-pointer">
+            Kafka
+          </span>
+<span class="px-5 py-2.5 rounded-full text-[13.5px] font-medium text-brand-gray-700 bg-white border border-[#E6E6E3] shadow-sm hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-colors cursor-pointer">
+            MCP
+          </span>
+<span class="px-5 py-2.5 rounded-full text-[13.5px] font-medium text-brand-gray-700 bg-white border border-[#E6E6E3] shadow-sm hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-colors cursor-pointer">
+            Google ADK
+          </span>
+<span class="px-5 py-2.5 rounded-full text-[13.5px] font-medium text-brand-gray-700 bg-white border border-[#E6E6E3] shadow-sm hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-colors cursor-pointer">
+            Vertex AI
+          </span></div>
+</div>
+</section>
+<!-- END: ConnectorEcosystem -->
+<!-- BEGIN: FAQSection -->
+<section class="py-24 md:py-28 bg-white" data-purpose="faq">
+<div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+<h2 class="text-3xl sm:text-[2.5rem] font-bold tracking-tight text-black mb-12">
+          Frequently asked
+        </h2>
+<!-- FAQ Items -->
+<div class="border-t border-gray-200 divide-y divide-gray-200">
+<!-- Item 1 -->
+<div class="py-6 flex items-center justify-between group cursor-pointer" data-purpose="faq-item">
+<span class="text-[17px] font-medium text-black group-hover:text-brand-gray-700 transition-colors">
+              How is this different from MuleSoft or Boomi?
+            </span>
+<span class="text-xl text-brand-gray-400 group-hover:text-black font-light ml-4 transition-colors">
+              +
+            </span>
+</div>
+<!-- Item 2 -->
+<div class="py-6 flex items-center justify-between group cursor-pointer" data-purpose="faq-item">
+<span class="text-[17px] font-medium text-black group-hover:text-brand-gray-700 transition-colors">
+              How do you prevent bad database writes?
+            </span>
+<span class="text-xl text-brand-gray-400 group-hover:text-black font-light ml-4 transition-colors">
+              +
+            </span>
+</div>
+<!-- Item 3 -->
+<div class="py-6 flex items-center justify-between group cursor-pointer" data-purpose="faq-item">
+<span class="text-[17px] font-medium text-black group-hover:text-brand-gray-700 transition-colors">
+              Can this run in our VPC?
+            </span>
+<span class="text-xl text-brand-gray-400 group-hover:text-black font-light ml-4 transition-colors">
+              +
+            </span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: FAQSection -->
+<!-- BEGIN: CallToActionCard -->
+<section class="py-12 md:py-20" data-purpose="cta-banner">
+<div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+<div class="bg-[#0B0B0B] text-white rounded-[2rem] p-10 sm:p-14 lg:p-16 shadow-2xl relative overflow-hidden border border-neutral-800">
+<div class="max-w-3xl relative z-10">
+<h2 class="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold tracking-tight leading-tight">
+              Ready to turn siloed systems into unified agentic capabilities?
+            </h2>
+<p class="mt-6 text-[1.05rem] text-brand-gray-300 leading-relaxed font-normal">
+              Book a technical consultation. We'll audit your API landscape and send you a custom integration blueprint in 5 days.
+            </p>
+<!-- CTA Buttons -->
+<div class="mt-9 flex flex-wrap items-center gap-4">
+<a class="text-[14.5px] font-medium text-white bg-[#6C4DFF] hover:bg-[#5b38ee] px-6 py-3.5 rounded-full transition-colors duration-150 shadow-sm" href="#audit">
+                Schedule Integration Audit
+              </a>
+<a class="text-[14.5px] font-medium text-white bg-transparent hover:bg-white/10 hover:border-[#6C4DFF] border border-neutral-700 px-6 py-3.5 rounded-full transition-colors duration-150" href="#engineering">
+                Talk to Enterprise Engineering
+              </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: CallToActionCard -->
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: MainFooter -->
+<footer class="bg-[#0B0B0B] text-white pt-16 pb-12 mt-12 text-[14px] border-t border-neutral-800" data-purpose="footer">
+<div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+<!-- Top Links Grid -->
+<div class="grid grid-cols-2 md:grid-cols-12 gap-8 lg:gap-12 pb-16">
+<!-- Brand Description -->
+<div class="col-span-2 md:col-span-4 pr-4">
+<span class="text-lg font-bold tracking-tight text-white block mb-4">RightAgents</span>
+<p class="text-brand-gray-400 text-[13.5px] leading-relaxed max-w-xs">
+            Building the Right Agents. Building Them Right. Building the Right Talent.
+          </p>
+</div>
+<!-- Solutions -->
+<div class="col-span-1 md:col-span-2">
+<h4 class="font-semibold text-white text-[13px] uppercase tracking-wider mb-4">Solutions</h4>
+<ul class="space-y-2.5 text-brand-gray-400">
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="data.html">Data Intelligence</a></li>
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="workflow-automation.html">Workflow Automation</a></li>
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="agentic-integration.html">Agentic Integration</a></li>
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="custom-agent-development.html">Custom Agent Development</a></li>
+</ul>
+</div>
+<!-- Products -->
+<div class="col-span-1 md:col-span-2">
+<h4 class="font-semibold text-white text-[13px] uppercase tracking-wider mb-4">Products</h4>
+<ul class="space-y-2.5 text-brand-gray-400">
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="blog-refresher.html">Blog Refresher</a></li>
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="blog-creator.html">Blog Creator</a></li>
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="pricing.html">Pricing</a></li>
+</ul>
+</div>
+<!-- Company -->
+<div class="col-span-1 md:col-span-2">
+<h4 class="font-semibold text-white text-[13px] uppercase tracking-wider mb-4">Company</h4>
+<ul class="space-y-2.5 text-brand-gray-400">
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="resources.html">Resources</a></li>
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="about.html">About</a></li>
+</ul>
+</div>
+<!-- Contact -->
+<div class="col-span-1 md:col-span-2">
+<h4 class="font-semibold text-white text-[13px] uppercase tracking-wider mb-4">Contact</h4>
+<ul class="space-y-2 text-brand-gray-400"><li class=""><a class="hover:text-[#6C4DFF] transition-colors break-all" href="mailto:ram@rightagents.ai">ram@rightagents.ai</a></li>
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors break-all" href="mailto:hello@rightagents.ai">hello@rightagents.ai</a></li>
+<li class="pt-2">
+<div class="flex items-center gap-3 pt-1 text-neutral-400">
+<a aria-label="X" class="text-brand-gray-400 hover:text-[#6C4DFF] transition-colors duration-150 inline-flex items-center justify-center" href="#">
+<svg aria-hidden="true" class="w-4 h-4 fill-current" viewbox="0 0 24 24">
+<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+</svg>
+</a>
+<a aria-label="LinkedIn" class="text-brand-gray-400 hover:text-[#6C4DFF] transition-colors duration-150 inline-flex items-center justify-center" href="#">
+<svg aria-hidden="true" class="w-4 h-4 fill-current" viewbox="0 0 24 24">
+<path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76c-.97 0-1.75-.79-1.75-1.76s.78-1.76 1.75-1.76c.97 0 1.76.79 1.76 1.76s-.79 1.76-1.76 1.76m1.39 9.74v-8.37H5.07v8.37h2.78Z"></path>
+</svg>
+</a>
+<a aria-label="YouTube" class="text-brand-gray-400 hover:text-[#6C4DFF] transition-colors duration-150 inline-flex items-center justify-center" href="#">
+<svg aria-hidden="true" class="w-4 h-4 fill-current" viewbox="0 0 24 24">
+<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
+</svg>
+</a>
+<a aria-label="Instagram" class="text-brand-gray-400 hover:text-[#6C4DFF] transition-colors duration-150 inline-flex items-center justify-center" href="#">
+<svg aria-hidden="true" class="w-4 h-4 fill-current" viewbox="0 0 24 24">
+<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"></path>
+</svg>
+</a>
+<a aria-label="Facebook" class="text-brand-gray-400 hover:text-[#6C4DFF] transition-colors duration-150 inline-flex items-center justify-center" href="#">
+<svg aria-hidden="true" class="w-4 h-4 fill-current" viewbox="0 0 24 24">
+<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+</svg>
+</a>
+</div>
+</li></ul>
+</div>
+</div>
+<!-- Bottom Bar -->
+<div class="pt-8 border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12.5px] text-brand-gray-400">
+<div class="">© 2026 RightAgents.ai. All rights reserved.</div>
+<div class="flex items-center gap-4">
+<a class="hover:text-[#6C4DFF] transition-colors" href="#privacy">Privacy</a>
+<span class="">·</span>
+<a class="hover:text-[#6C4DFF] transition-colors" href="#terms">Terms</a>
+<span class="">·</span>
+<a class="hover:text-[#6C4DFF] transition-colors" href="#contact">Contact</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+</body></html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RightAgents - Custom Agent Development</title>
+<!-- Tailwind CSS v3 with forms and container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+          },
+          colors: {
+            brandDark: '#0B0D10',
+            neutralBorder: '#E5E7EB',
+            badgeBg: '#F9FAFB',
+            subtleText: '#52525B',
+          }
+        }
+      }
+    }
+  </script>
+<!-- Typography and baseline styling -->
+<style data-purpose="typography">
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&display=swap');
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: #111827;
+      background-color: #FFFFFF;
+    }
+  </style>
+<link data-snapdom="injected-import" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&amp;display=swap" rel="stylesheet"/></head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-neutral-900 selection:text-white">
+<!-- BEGIN: MainHeader -->
+<header class="w-full bg-white sticky top-0 z-50 border-b border-transparent"><div class="max-w-[1340px] mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+<div class="flex items-center space-x-12">
+<a class="flex items-center space-x-2.5 group" href="#"><span class="text-xl font-bold tracking-tight text-neutral-900">RightAgents</span></a>
+<nav class="hidden md:flex items-center space-x-7 text-[14.5px] font-medium text-neutral-600">
+<div class="relative group">
+<a class="flex items-center gap-1.5 hover:text-[#6C4DFF] transition-colors duration-150" href="#">
+<span>Solutions</span>
+<svg class="h-4 w-4 transition-transform group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+</a>
+<div class="absolute left-0 top-full mt-2 hidden w-72 rounded-2xl border border-neutral-200 bg-white p-2 shadow-xl shadow-neutral-200/60 group-hover:block group-focus-within:block">
+<a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="data.html">Data</a>
+<a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="workflow-automation.html">Workflow Automation</a>
+<a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="agentic-integration.html">Agentic Integration</a>
+<a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="custom-agent-development.html">Custom Agent Development</a>
+</div>
+</div>
+<div class="relative group">
+<a class="flex items-center gap-1.5 hover:text-[#6C4DFF] transition-colors duration-150" href="#">
+<span>Products</span>
+<svg class="h-4 w-4 transition-transform group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+</a>
+<div class="absolute left-0 top-full mt-2 hidden w-72 rounded-2xl border border-neutral-200 bg-white p-2 shadow-xl shadow-neutral-200/60 group-hover:block group-focus-within:block">
+<a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="blog-refresher.html">Blog Refresher</a>
+<a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="blog-creator.html">Blog Creator</a>
+<a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="pricing.html">Pricing</a>
+</div>
+</div>
+<a class="hover:text-[#6C4DFF] transition-colors duration-150" href="resources.html">Resources</a>
+<a class="hover:text-[#6C4DFF] transition-colors duration-150" href="about.html">About</a>
+</nav>
+<details class="relative md:hidden" style="list-style:none">
+  <summary class="flex cursor-pointer list-none items-center gap-1.5 rounded-full border border-neutral-200 px-3 py-2 text-sm font-medium text-neutral-700">
+    Solutions
+    <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+  </summary>
+  <div class="absolute right-0 top-full mt-2 w-72 rounded-2xl border border-neutral-200 bg-white p-2 shadow-xl shadow-neutral-200/60">
+    <a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="data.html">Data</a>
+    <a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="workflow-automation.html">Workflow Automation</a>
+    <a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="agentic-integration.html">Agentic Integration</a>
+    <a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="custom-agent-development.html">Custom Agent Development</a>
+  </div>
+</details>
+</div>
+<div class="flex items-center space-x-5">
+<a class="text-[14px] font-medium text-neutral-800 hover:text-[#6C4DFF] px-2 py-1.5 transition-colors" href="#">
+          Talk to Us
+        </a>
+<a class="text-[13.5px] font-medium text-white bg-[#6C4DFF] hover:bg-[#5b38ee] shadow-sm transition-all rounded-full px-5 py-2" href="#">
+          Schedule a Call
+        </a>
+</div>
+</div></header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainContent -->
+<main class="flex-grow">
+<!-- BEGIN: HeroSection -->
+<section class="max-w-[1340px] mx-auto px-6 lg:px-12 pt-24 pb-32" style="background: radial-gradient(circle at 75% 40%, rgba(108, 77, 255, 0.08) 0%, rgba(245, 242, 255, 0.6) 45%, #FFFFFF 75%);">
+<div class="max-w-[890px]">
+<!-- Hero Title -->
+<h1 class="text-[52px] sm:text-[62px] lg:text-[68px] font-[750] leading-[1.08] tracking-[-0.035em] text-neutral-950 text-left">
+          Engineering custom autonomous agents that master your domain's deepest complexities.
+        </h1>
+<!-- Hero Subtitle -->
+<p class="mt-8 text-[17px] sm:text-[18px] leading-[1.62] text-neutral-600 max-w-[700px] font-normal tracking-[-0.01em]">
+          Off-the-shelf bots fail on edge cases, domain nuances, and mission-critical workflows. We build bespoke multi-agent systems with deterministic tool calling, rigorous evals, and stateful memory — tuned to how you actually operate.
+        </p>
+<!-- CTA Buttons -->
+<div class="mt-10 flex flex-wrap items-center gap-4"><a class="text-[14px] font-medium text-white bg-[#6C4DFF] hover:bg-[#5b38ee] rounded-full px-6 py-2.5 transition-all inline-block shadow-sm" href="#">
+            Talk to Us
+          </a>
+<a class="text-[14px] font-medium text-neutral-800 bg-white hover:text-[#6C4DFF] hover:border-[#6C4DFF] border border-neutral-300 rounded-full px-6 py-2.5 transition-all inline-block" href="#">
+            Schedule a Call
+          </a></div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: FailuresSection -->
+<section class="w-full bg-[#F0EDFF] py-24"><div class="max-w-[1340px] mx-auto px-6 lg:px-12"><div class="max-w-[850px] mb-16"><h2 class="text-[34px] sm:text-[40px] font-[700] tracking-[-0.03em] leading-[1.18] text-neutral-950">Why generic LLM wrappers and off-the-shelf agents fail in enterprise production</h2><p class="mt-4 text-[16px] text-neutral-600 font-normal leading-relaxed">Consumer models can't handle complex state, multi-step dependencies, or compliance requirements.</p></div><div><div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"><div class="bg-white rounded-2xl p-8 border border-neutral-200/80 shadow-sm"><div class="text-[52px] sm:text-[58px] font-[750] tracking-[-0.04em] text-[#6C4DFF] leading-none">74%</div><p class="mt-4 text-[14px] leading-[1.5] text-neutral-600 font-normal max-w-[280px]">Multi-step task failure — agents lose goal alignment past 4 sequential tool calls.</p></div><div class="bg-white rounded-2xl p-8 border border-neutral-200/80 shadow-sm"><div class="text-[52px] sm:text-[58px] font-[750] tracking-[-0.04em] text-[#6C4DFF] leading-none">0</div><p class="mt-4 text-[14px] leading-[1.5] text-neutral-600 font-normal max-w-[280px]">Auditability in black boxes — no way to trace reasoning or roll back corrupt state.</p></div><div class="bg-white rounded-2xl p-8 border border-neutral-200/80 shadow-sm"><div class="text-[52px] sm:text-[58px] font-[750] tracking-[-0.04em] text-[#6C4DFF] leading-none">60–90d</div><p class="mt-4 text-[14px] leading-[1.5] text-neutral-600 font-normal max-w-[280px]">to production. Guaranteed production SLAs.</p></div></div></div></div></section>
+<!-- END: FailuresSection -->
+<!-- BEGIN: ThreePillarsSection -->
+<section class="w-full bg-white py-24"><div class="max-w-[1340px] mx-auto px-6 lg:px-12"><div class="max-w-[760px] mb-16"><h2 class="text-[34px] sm:text-[40px] font-[700] tracking-[-0.03em] leading-[1.2] text-neutral-950">The Three Pillars of Bespoke Agent Development</h2><p class="mt-4 text-[15px] sm:text-[15.5px] text-neutral-600 leading-[1.6]">Built for mission-critical domain logic, multi-agent coordination, and verifiable safety. Enterprise benchmark: 99.8% determinism, zero unauthorized mutations.</p></div><div class="grid grid-cols-1 gap-6"><div class="p-8 rounded-2xl bg-white border border-[#E6E6E3] hover:border-[#6C4DFF] transition-all grid grid-cols-1 md:grid-cols-12 gap-8 items-start shadow-sm"><div class="md:col-span-5"><h3 class="text-[18px] font-[650] text-neutral-950 tracking-[-0.015em]">Domain-Anchored Cognitive Architectures</h3></div><div class="md:col-span-7"><p class="text-[14.5px] text-neutral-600 leading-[1.6]">Custom prompt trees, domain embeddings, and state machines built specifically for your business rules.</p><div class="mt-5 flex flex-wrap gap-2.5"><span class="inline-flex items-center px-3.5 py-1 rounded-full text-[12px] font-semibold bg-[#F0EDFF] text-[#6C4DFF] border border-[#6C4DFF]/20">Proprietary business taxonomy embedding</span><span class="inline-flex items-center px-3.5 py-1 rounded-full text-[12px] font-semibold bg-[#F0EDFF] text-[#6C4DFF] border border-[#6C4DFF]/20">Stateful multi-session conversation graph</span></div></div></div><div class="p-8 rounded-2xl bg-white border border-[#E6E6E3] hover:border-[#6C4DFF] transition-all grid grid-cols-1 md:grid-cols-12 gap-8 items-start shadow-sm"><div class="md:col-span-5"><h3 class="text-[18px] font-[650] text-neutral-950 tracking-[-0.015em]">Multi-Agent Collaboration &amp; Adversarial Evals</h3></div><div class="md:col-span-7"><p class="text-[14.5px] text-neutral-600 leading-[1.6]">Specialized worker agents run under a controller, with critic agents checking their work before execution.</p><div class="mt-5 flex flex-wrap gap-2.5"><span class="inline-flex items-center px-3.5 py-1 rounded-full text-[12px] font-semibold bg-[#F0EDFF] text-[#6C4DFF] border border-[#6C4DFF]/20">LangGraph StateGraph orchestration</span><span class="inline-flex items-center px-3.5 py-1 rounded-full text-[12px] font-semibold bg-[#F0EDFF] text-[#6C4DFF] border border-[#6C4DFF]/20">Continuous offline regression evals</span></div></div></div><div class="p-8 rounded-2xl bg-white border border-[#E6E6E3] hover:border-[#6C4DFF] transition-all grid grid-cols-1 md:grid-cols-12 gap-8 items-start shadow-sm"><div class="md:col-span-5"><h3 class="text-[18px] font-[650] text-neutral-950 tracking-[-0.015em]">Deterministic Tool Execution &amp; State Rollback</h3></div><div class="md:col-span-7"><p class="text-[14.5px] text-neutral-600 leading-[1.6]">Every write is validated, escalated if it crosses your risk threshold, and reversible. Full audit trail on every mutation.</p><div class="mt-5 flex flex-wrap gap-2.5"><span class="inline-flex items-center px-3.5 py-1 rounded-full text-[12px] font-semibold bg-[#F0EDFF] text-[#6C4DFF] border border-[#6C4DFF]/20">Two-phase commit simulation before writes</span><span class="inline-flex items-center px-3.5 py-1 rounded-full text-[12px] font-semibold bg-[#F0EDFF] text-[#6C4DFF] border border-[#6C4DFF]/20">Threshold-triggered human escalation gates</span></div></div></div></div></div></section>
+<!-- END: ThreePillarsSection -->
+<!-- BEGIN: FrameworksSection -->
+<section class="w-full bg-[#F0EDFF] py-24 border-[#6C4DFF]/20"><div class="max-w-[1340px] mx-auto px-6 lg:px-12"><div><h2 class="text-[34px] sm:text-[40px] font-[700] tracking-[-0.03em] leading-[1.2] text-neutral-950">Supported Frameworks &amp; Agent Infrastructure</h2><p class="mt-3.5 text-[15.5px] text-neutral-600">Built on production-proven multi-agent libraries and sandboxed runtimes.</p></div><div class="mt-9 space-y-3.5"><div class="flex flex-wrap items-center gap-2.5"><span class="px-4 py-2 rounded-full text-[13.5px] font-medium text-neutral-750 bg-white border border-[#E6E6E3] hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-default shadow-sm">Google ADK</span><span class="px-4 py-2 rounded-full text-[13.5px] font-medium text-neutral-750 bg-white border border-[#E6E6E3] hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-default shadow-sm">LangGraph</span><span class="px-4 py-2 rounded-full text-[13.5px] font-medium text-neutral-750 bg-white border border-[#E6E6E3] hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-default shadow-sm">Vertex AI</span><span class="px-4 py-2 rounded-full text-[13.5px] font-medium text-neutral-750 bg-white border border-[#E6E6E3] hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-default shadow-sm">CrewAI</span><span class="px-4 py-2 rounded-full text-[13.5px] font-medium text-neutral-750 bg-white border border-[#E6E6E3] hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-default shadow-sm">AutoGen</span><span class="px-4 py-2 rounded-full text-[13.5px] font-medium text-neutral-750 bg-white border border-[#E6E6E3] hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-default shadow-sm">LlamaIndex</span><span class="px-4 py-2 rounded-full text-[13.5px] font-medium text-neutral-750 bg-white border border-[#E6E6E3] hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-default shadow-sm">Pinecone</span><span class="px-4 py-2 rounded-full text-[13.5px] font-medium text-neutral-750 bg-white border border-[#E6E6E3] hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-default shadow-sm">Weaviate</span></div><div class="flex flex-wrap items-center gap-2.5"><span class="px-4 py-2 rounded-full text-[13.5px] font-medium text-neutral-750 bg-white border border-[#E6E6E3] hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-default shadow-sm">Langfuse</span><span class="px-4 py-2 rounded-full text-[13.5px] font-medium text-neutral-750 bg-white border border-[#E6E6E3] hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-default shadow-sm">Arize</span><span class="px-4 py-2 rounded-full text-[13.5px] font-medium text-neutral-750 bg-white border border-[#E6E6E3] hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-default shadow-sm">MCP</span><span class="px-4 py-2 rounded-full text-[13.5px] font-medium text-neutral-750 bg-white border border-[#E6E6E3] hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-default shadow-sm">Docker</span><span class="px-4 py-2 rounded-full text-[13.5px] font-medium text-neutral-750 bg-white border border-[#E6E6E3] hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-default shadow-sm">Kubernetes</span><span class="px-4 py-2 rounded-full text-[13.5px] font-medium text-neutral-750 bg-white border border-[#E6E6E3] hover:border-[#6C4DFF] hover:bg-[#F0EDFF] hover:text-[#6C4DFF] transition-all cursor-default shadow-sm">Kafka</span></div></div></div></section>
+<!-- END: FrameworksSection -->
+<!-- BEGIN: FAQSection -->
+<section class="w-full bg-white py-24"><div class="max-w-[1340px] mx-auto px-6 lg:px-12"><h2 class="text-[34px] sm:text-[40px] font-[700] tracking-[-0.03em] text-neutral-950 mb-10">Frequently asked</h2><div class="border-t border-neutral-200"><details class="group border-b border-neutral-200 cursor-pointer"><summary class="flex justify-between items-center py-5 list-none select-none text-[15.5px] font-medium text-neutral-900 group-hover:text-black"><span class="">How is a custom agent different from an OpenAI assistant?</span><span class="text-neutral-400 group-hover:text-neutral-800 text-lg font-light transition-transform duration-200 group-open:rotate-45">+</span></summary><div class="pb-5 pt-1 text-[14.5px] text-neutral-600 leading-relaxed max-w-3xl">Custom agents run within deterministic state machines with verifiable sandboxing, multi-agent evaluation topologies, and enterprise-grade rollbacks rather than simple stateless prompting or untracked thread executions.</div></details><details class="group border-b border-neutral-200 cursor-pointer"><summary class="flex justify-between items-center py-5 list-none select-none text-[15.5px] font-medium text-neutral-900 group-hover:text-black"><span class="">How do you prevent unauthorized writes?</span><span class="text-neutral-400 group-hover:text-neutral-800 text-lg font-light transition-transform duration-200 group-open:rotate-45">+</span></summary><div class="pb-5 pt-1 text-[14.5px] text-neutral-600 leading-relaxed max-w-3xl">We implement two-phase commit simulations before any database, CRM, or stateful mutation occurs. If threshold risk parameters are exceeded, execution gates automatically divert to human-in-the-loop review.</div></details><details class="group border-b border-neutral-200 cursor-pointer"><summary class="flex justify-between items-center py-5 list-none select-none text-[15.5px] font-medium text-neutral-900 group-hover:text-black"><span class="">What does the 60–90 day lifecycle look like?</span><span class="text-neutral-400 group-hover:text-neutral-800 text-lg font-light transition-transform duration-200 group-open:rotate-45">+</span></summary><div class="pb-5 pt-1 text-[14.5px] text-neutral-600 leading-relaxed max-w-3xl">Days 1–15 encompass deep domain mapping &amp; architecture blueprints. Days 16–45 build multi-agent graphs with synthetic eval suites. Days 46–90 focus on shadow production runs, fine-tuning, safety audits, and SLA verification.</div></details></div></div></section>
+<!-- END: FAQSection -->
+<!-- BEGIN: CallToActionBox -->
+<section class="max-w-[1340px] mx-auto px-6 lg:px-12 pb-28">
+<div class="bg-[#0B0B0B] text-white rounded-2xl px-8 py-16 sm:px-16 sm:py-20 lg:p-20 relative overflow-hidden border border-neutral-800">
+<div class="max-w-[780px]">
+<h2 class="text-[34px] sm:text-[44px] lg:text-[48px] font-[750] tracking-[-0.03em] leading-[1.12]">
+            Ready to deploy custom autonomous agents engineered for your specific business?
+          </h2>
+<p class="mt-6 text-[16px] sm:text-[17px] text-neutral-300 leading-relaxed max-w-[620px]">
+            Book a technical scoping session. We'll map your workflows, design the agent topology, and send you a blueprint in 5 days.
+          </p>
+<div class="mt-10 flex flex-wrap items-center gap-4">
+<a class="bg-[#6C4DFF] hover:bg-[#5b38ee] text-white text-[14px] font-semibold rounded-full px-6 py-3 transition-colors inline-block shadow-sm" href="#">
+              Schedule Architecture Scoping
+            </a>
+<a class="bg-transparent text-white border border-neutral-700 hover:border-neutral-400 hover:bg-neutral-900 text-[14px] font-medium rounded-full px-6 py-3 transition-all inline-block" href="#">
+              Talk to Enterprise Engineering
+            </a>
+</div>
+</div>
+</div>
+</section>
+<!-- END: CallToActionBox -->
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: MainFooter -->
+<footer class="w-full bg-[#0B0B0B] text-white border-t border-neutral-800 pt-20 pb-12">
+<div class="max-w-[1340px] mx-auto px-6 lg:px-12">
+<!-- 5-column Links Layout -->
+<div class="grid grid-cols-2 md:grid-cols-12 gap-y-12 gap-x-8 pb-16">
+<!-- Brand Summary Column -->
+<div class="col-span-2 md:col-span-4 pr-4">
+<span class="text-lg font-bold tracking-tight text-white block mb-4">RightAgents</span>
+<p class="mt-4 text-[13px] text-neutral-400 leading-relaxed max-w-[220px]">
+            Building the Right Agents. Building Them Right. Building the Right Talent.
+          </p>
+</div>
+<!-- Solutions Column -->
+<div class="col-span-1 md:col-span-2">
+<h4 class="text-[13.5px] font-medium text-neutral-400 mb-4 tracking-tight">Solutions</h4>
+<ul class="space-y-2.5 text-[13.5px] text-neutral-300 font-normal">
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="data.html">Data Intelligence</a></li>
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="workflow-automation.html">Workflow Automation</a></li>
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="agentic-integration.html">Agentic Integration</a></li>
+<li class=""><a class="text-[#6C4DFF] font-medium hover:text-[#6C4DFF] transition-colors" href="custom-agent-development.html">Custom Agent Development</a></li>
+</ul>
+</div>
+<!-- Products Column -->
+<div class="col-span-1 md:col-span-2">
+<h4 class="text-[13.5px] font-medium text-neutral-400 mb-4 tracking-tight">Products</h4>
+<ul class="space-y-2.5 text-[13.5px] text-neutral-300 font-normal">
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="blog-refresher.html">Blog Refresher</a></li>
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="blog-creator.html">Blog Creator</a></li>
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="pricing.html">Pricing</a></li>
+</ul>
+</div>
+<!-- Company Column -->
+<div class="col-span-1 md:col-span-2">
+<h4 class="text-[13.5px] font-medium text-neutral-400 mb-4 tracking-tight">Company</h4>
+<ul class="space-y-2.5 text-[13.5px] text-neutral-300 font-normal">
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="resources.html">Resources</a></li>
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="about.html">About</a></li>
+</ul>
+</div>
+<!-- Contact & Social Column -->
+<div class="col-span-1 md:col-span-2">
+<h4 class="text-[13.5px] font-medium text-neutral-400 mb-4 tracking-tight">Contact</h4>
+<ul class="space-y-2 text-[13.5px] text-neutral-300 font-normal"><li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="mailto:ram@rightagents.ai">ram@rightagents.ai</a></li><li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="mailto:hello@rightagents.ai">hello@rightagents.ai</a></li><li class="pt-2"><div class="flex items-center gap-3 text-neutral-400"><a aria-label="X" class="text-neutral-400 hover:text-[#6C4DFF] transition-colors duration-150 inline-flex" href="#"><svg class="w-[18px] h-[18px] fill-current" viewbox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a><a aria-label="LinkedIn" class="text-neutral-400 hover:text-[#6C4DFF] transition-colors duration-150 inline-flex" href="#"><svg class="w-[18px] h-[18px] fill-current" viewbox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"></path></svg></a><a aria-label="YouTube" class="text-neutral-400 hover:text-[#6C4DFF] transition-colors duration-150 inline-flex" href="#"><svg class="w-[18px] h-[18px] fill-current" viewbox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg></a><a aria-label="Instagram" class="text-neutral-400 hover:text-[#6C4DFF] transition-colors duration-150 inline-flex" href="#"><svg class="w-[18px] h-[18px] fill-current" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg></a><a aria-label="Facebook" class="text-neutral-400 hover:text-[#6C4DFF] transition-colors duration-150 inline-flex" href="#"><svg class="w-[18px] h-[18px] fill-current" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg></a></div></li></ul>
+</div>
+</div>
+<!-- Bottom Bar Divider and Copyright -->
+<div class="border-t border-neutral-800 pt-8 flex flex-col sm:flex-row items-center justify-between text-[12.5px] text-neutral-400">
+<p class="">© 2026 RightAgents.ai. All rights reserved.</p>
+<div class="flex items-center space-x-3 mt-4 sm:mt-0">
+<a class="hover:text-[#6C4DFF] transition-colors" href="#">Privacy</a>
+<span class="">·</span>
+<a class="hover:text-[#6C4DFF] transition-colors" href="#">Terms</a>
+<span class="">·</span>
+<a class="hover:text-[#6C4DFF] transition-colors" href="#">Contact</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+</body></html>
