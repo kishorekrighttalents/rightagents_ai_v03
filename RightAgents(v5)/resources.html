@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Engineering Benchmarks &amp; Blueprints | RightAgents</title>
+<!-- Tailwind CSS CDN with forms and container-queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          },
+          colors: {
+            brandCard: '#f5f5f7',
+            brandDark: '#0a0a0a',
+          }
+        }
+      }
+    }
+  </script>
+<!-- Typography & Global Reset Styles -->
+<style data-purpose="typography">
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+<!-- Layout & Custom Utilities -->
+<style data-purpose="layout-utilities">
+    .card-gray {
+      background-color: #f7f7f8;
+      transition: background-color 0.15s ease-in-out;
+    }
+    .card-gray:hover {
+      background-color: #f1f1f3;
+    }
+  </style>
+<link data-snapdom="injected-import" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/></head>
+<body class="bg-white text-neutral-900 selection:bg-neutral-900 selection:text-white">
+<!-- BEGIN: GlobalHeader -->
+<header class="w-full bg-white border-b border-transparent pt-5 pb-5">
+<div class="max-w-[1140px] mx-auto px-6 sm:px-8 flex items-center justify-between">
+<!-- Brand Logo & Main Nav -->
+<div class="flex items-center space-x-10">
+<!-- Logo -->
+<a class="flex items-center space-x-2.5 group" href="#"><span class="text-[20px] font-bold tracking-tight text-neutral-900">RightAgents</span></a>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center space-x-7 text-[13.5px] font-medium text-neutral-700"><div class="relative group"><a class="flex items-center gap-1.5 hover:text-[#6C4DFF] transition-colors" href="#"><span>Solutions</span><svg class="h-4 w-4 transition-transform group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg></a><div class="absolute left-0 top-full mt-2 hidden w-72 rounded-2xl border border-neutral-200 bg-white p-2 shadow-xl shadow-neutral-200/60 group-hover:block group-focus-within:block"><a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="data.html">Data</a><a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="workflow-automation.html">Workflow Automation</a><a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="agentic-integration.html">Agentic Integration</a><a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="custom-agent-development.html">Custom Agent Development</a></div></div>
+<div class="relative group"><a class="flex items-center gap-1.5 hover:text-[#6C4DFF] transition-colors" href="#"><span>Products</span><svg class="h-4 w-4 transition-transform group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg></a><div class="absolute left-0 top-full mt-2 hidden w-72 rounded-2xl border border-neutral-200 bg-white p-2 shadow-xl shadow-neutral-200/60 group-hover:block group-focus-within:block"><a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="blog-refresher.html">Blog Refresher</a><a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="blog-creator.html">Blog Creator</a><a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="pricing.html">Pricing</a></div></div>
+<a class="text-[#6C4DFF] font-semibold border-b-2 border-[#6C4DFF] pb-0.5" href="resources.html">Resources</a>
+<a class="hover:text-[#6C4DFF] transition-colors" href="about.html">About</a></nav>
+<details class="relative md:hidden" style="list-style:none">
+  <summary class="flex cursor-pointer list-none items-center gap-1.5 rounded-full border border-neutral-200 px-3 py-2 text-sm font-medium text-neutral-700">
+    Solutions
+    <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+  </summary>
+  <div class="absolute right-0 top-full mt-2 w-72 rounded-2xl border border-neutral-200 bg-white p-2 shadow-xl shadow-neutral-200/60">
+    <a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="data.html">Data</a>
+    <a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="workflow-automation.html">Workflow Automation</a>
+    <a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="agentic-integration.html">Agentic Integration</a>
+    <a class="block rounded-xl px-3 py-2 text-left text-sm text-neutral-700 hover:bg-[#F5F2FF] hover:text-[#6C4DFF]" href="custom-agent-development.html">Custom Agent Development</a>
+  </div>
+</details>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center space-x-5 text-[13.5px]">
+<a class="text-neutral-800 hover:text-neutral-950 font-medium px-2 py-1" href="#">Talk to Us</a>
+<a class="btn-brand-primary font-medium px-4 py-2 rounded-full transition-all text-[13.5px]" href="#">Schedule a Call</a>
+</div>
+</div>
+</header>
+<!-- END: GlobalHeader -->
+<main class="w-full pb-20">
+<!-- BEGIN: HeroSection -->
+<!-- BEGIN: HeroSection -->
+<section class="max-w-[1140px] mx-auto px-6 sm:px-8 py-24 relative bg-gradient-to-b from-[#FFFFFF] via-[#F5F2FF] to-[#FFFFFF] overflow-hidden rounded-[28px]">
+<div class="max-w-4xl">
+<!-- Main Headline -->
+<h1 class="text-[44px] sm:text-[58px] leading-[1.08] font-bold text-neutral-950 tracking-[-0.035em]">
+          Engineering benchmarks,<br class="hidden sm:inline"/>
+          blueprints, and<br class="hidden sm:inline"/>
+          playbooks for<br class="hidden sm:inline"/>
+          autonomous agentic<br class="hidden sm:inline"/>
+          systems.
+        </h1>
+<!-- Hero Subtitle -->
+<p class="mt-8 text-[15px] sm:text-[16px] leading-relaxed text-neutral-600 max-w-2xl font-normal">
+          Explore architectures, evaluation frameworks, and production post-mortems — curated by senior AI architects.
+        </p>
+<!-- Primary CTA Button -->
+<div class="mt-8">
+<a class="inline-block btn-brand-primary text-white text-[13.5px] font-medium px-6 py-2.5 rounded-full transition-all" href="#">Schedule Architecture Review</a>
+</div>
+</div>
+<div class="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 bg-[#E8E2FF]/60 rounded-full blur-3xl pointer-events-none -z-10"></div></section>
+<!-- END: HeroSection -->
+<!-- END: HeroSection -->
+<!-- BEGIN: MetricsBar -->
+<!-- BEGIN: MetricsBar -->
+<section class="w-full bg-[#F5F2FF] py-24 relative bg-gradient-to-b from-[#FFFFFF] via-[#F5F2FF] to-[#FFFFFF] overflow-hidden rounded-[28px]">
+<div class="max-w-[1140px] mx-auto px-6 sm:px-8">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6">
+<div class="bg-white border border-[#6C4DFF]/15 rounded-2xl p-8">
+<div class="text-[40px] sm:text-[46px] font-bold tracking-tight text-neutral-950 leading-none">45+</div>
+<div class="text-[13px] text-neutral-600 font-normal mt-2.5">Blueprints &amp; Repos</div>
+</div>
+<div class="bg-white border border-[#6C4DFF]/15 rounded-2xl p-8">
+<div class="text-[40px] sm:text-[46px] font-bold tracking-tight text-[#6C4DFF] leading-none">99.8%</div>
+<div class="text-[13px] text-neutral-600 font-normal mt-2.5">Deterministic Benchmark</div>
+</div>
+<div class="bg-white border border-[#6C4DFF]/15 rounded-2xl p-8">
+<div class="text-[40px] sm:text-[46px] font-bold tracking-tight text-neutral-950 leading-none">12k+</div>
+<div class="text-[13px] text-neutral-600 font-normal mt-2.5">Engineers Reached</div>
+</div>
+</div>
+</div>
+<div class="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 bg-[#E8E2FF]/60 rounded-full blur-3xl pointer-events-none -z-10"></div></section>
+<!-- END: MetricsBar -->
+<!-- BEGIN: CuratedTechnicalSpotlight -->
+<section class="w-full bg-white py-24 relative bg-gradient-to-b from-[#FFFFFF] via-[#F5F2FF] to-[#FFFFFF] overflow-hidden rounded-[28px]">
+<div class="max-w-[1140px] mx-auto px-6 sm:px-8">
+<h2 class="text-[26px] font-bold tracking-tight text-neutral-950 mb-7">Curated Technical Spotlight</h2>
+<article class="bg-white border border-neutral-200 rounded-2xl p-7 sm:p-9 cursor-pointer">
+<div class="inline-block px-2.5 py-0.5 rounded-full bg-[#f4f1ff] text-[#6C4DFF] text-[11px] font-semibold uppercase tracking-wider mb-3.5">Featured Blueprint</div>
+<h3 class="text-[16px] sm:text-[17px] font-bold text-neutral-950 leading-snug mb-3 hover:text-[#6C4DFF] transition-colors">Deterministic State Rollbacks &amp; Adversarial Verification in Multi-Agent Swarms</h3>
+<p class="text-[13.5px] sm:text-[14px] leading-relaxed text-neutral-600 font-normal max-w-4xl">A deep analysis on solving the 74% multi-step task failure rate in enterprise LLM workflows — using Google ADK, LangGraph StateGraphs, and cryptographic mutation logs. Written by Enterprise Systems Architecture Group. 38-page PDF and executable starter repo included.</p>
+</article>
+</div>
+<div class="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 bg-[#E8E2FF]/60 rounded-full blur-3xl pointer-events-none -z-10"></div></section>
+<!-- END: CuratedTechnicalSpotlight -->
+<!-- END: MetricsBar -->
+<!-- BEGIN: CuratedTechnicalSpotlight -->
+<!-- END: CuratedTechnicalSpotlight -->
+<!-- BEGIN: ProductionInsights -->
+<!-- BEGIN: ProductionInsights -->
+<section class="w-full bg-[#F5F2FF] py-24 relative bg-gradient-to-b from-[#FFFFFF] via-[#F5F2FF] to-[#FFFFFF] overflow-hidden rounded-[28px]">
+<div class="max-w-[1140px] mx-auto px-6 sm:px-8">
+<div class="mb-7">
+<h2 class="text-[26px] sm:text-[28px] font-bold tracking-tight text-neutral-950 leading-tight">Insights from the trenches of<br class="hidden sm:inline"/> production AI</h2>
+<p class="text-[13.5px] text-neutral-600 font-normal mt-3 max-w-xl">Engineering write-ups, architectural deep dives, and post-mortems from the builders at RightAgents.ai.</p>
+</div>
+<article class="bg-white border border-neutral-200 rounded-2xl p-7 sm:p-8 mb-5 cursor-pointer">
+<h3 class="text-[15.5px] sm:text-[16.5px] font-bold text-neutral-950 leading-snug mb-2">Why 70% of Enterprise Agentic Pilots Fail at the Schema &amp; Tool Call Boundary</h3>
+<p class="text-[13.5px] leading-relaxed text-neutral-600 font-normal">What 450,000 multi-turn enterprise executions taught us about schema drift — and why strict schemas are the highest-leverage fix.</p>
+</article>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+<article class="bg-white border border-neutral-200 rounded-2xl p-7 flex flex-col justify-between cursor-pointer">
+<div>
+<h3 class="text-[15px] font-bold text-neutral-950 leading-snug mb-3">Zero-Latency Context Pruning in Stateful Agent Loops</h3>
+<p class="text-[13px] leading-relaxed text-neutral-600 font-normal">How to cut 65% of input token overhead without hurting task accuracy.</p>
+</div>
+</article>
+<article class="bg-white border border-neutral-200 rounded-2xl p-7 flex flex-col justify-between cursor-pointer">
+<div>
+<h3 class="text-[15px] font-bold text-neutral-950 leading-snug mb-3">Data is the Moat: Structuring Enterprise Catalogs for AEO</h3>
+<p class="text-[13px] leading-relaxed text-neutral-600 font-normal">Why live catalog sync beats raw RAG when crawling 100,000+ SKU stores.</p>
+</div>
+</article>
+<article class="bg-white border border-neutral-200 rounded-2xl p-7 flex flex-col justify-between cursor-pointer">
+<div>
+<h3 class="text-[15px] font-bold text-neutral-950 leading-snug mb-3">Building Deterministic Evaluation Harnesses for LangGraph and ADK</h3>
+<p class="text-[13px] leading-relaxed text-neutral-600 font-normal">How to build adversarial test suites that catch hallucinations before production.</p>
+</div>
+</article>
+</div>
+</div>
+<div class="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 bg-[#E8E2FF]/60 rounded-full blur-3xl pointer-events-none -z-10"></div></section>
+<!-- END: ProductionInsights -->
+<!-- END: ProductionInsights -->
+<!-- BEGIN: BlueprintsAndCaseStudies -->
+<!-- BEGIN: BlueprintsAndCaseStudies -->
+<section class="w-full bg-white py-24 relative bg-gradient-to-b from-[#FFFFFF] via-[#F5F2FF] to-[#FFFFFF] overflow-hidden rounded-[28px]">
+<div class="max-w-[1140px] mx-auto px-6 sm:px-8">
+<h2 class="text-[26px] sm:text-[28px] font-bold tracking-tight text-neutral-950 mb-7">Explore Technical Blueprints &amp;<br class="hidden sm:inline"/> Case Studies</h2>
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mb-6">
+<div class="relative w-full sm:max-w-md">
+<input class="w-full text-[13.5px] placeholder-neutral-500 text-neutral-900 bg-white border border-neutral-200 rounded-full px-5 py-2.5 focus:outline-none focus:ring-1 focus:ring-neutral-400 focus:border-neutral-400 transition" placeholder="Search blueprints and case studies" type="text"/>
+</div>
+<div class="flex items-center space-x-2 overflow-x-auto pb-1 sm:pb-0">
+<button class="bg-[#6C4DFF] text-white text-[13px] font-medium px-4 py-1.5 rounded-full transition">All</button>
+<button class="filter-tab-inactive bg-neutral-100 hover:bg-neutral-200 text-neutral-700 text-[13px] font-normal px-3.5 py-1.5 rounded-full transition">Architecture</button>
+<button class="filter-tab-inactive bg-neutral-100 hover:bg-neutral-200 text-neutral-700 text-[13px] font-normal px-3.5 py-1.5 rounded-full transition">Data</button>
+<button class="filter-tab-inactive bg-neutral-100 hover:bg-neutral-200 text-neutral-700 text-[13px] font-normal px-3.5 py-1.5 rounded-full transition">Evaluation</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+<article class="bg-white border border-neutral-200 rounded-2xl p-7 flex flex-col justify-between cursor-pointer min-h-[220px] transition-all">
+<div>
+<h3 class="text-[15px] font-bold text-neutral-950 leading-snug mb-3">Slashing Latency by 4.3x: Migrating Tier-1 Bank Settlement to Autonomous Agents</h3>
+<p class="text-[13px] leading-relaxed text-neutral-600 font-normal">Production telemetry and fault-recovery protocols from replacing legacy iPaaS connectors during heavy trade clearing.</p>
+</div>
+</article>
+<article class="bg-white border border-neutral-200 rounded-2xl p-7 flex flex-col justify-between cursor-pointer min-h-[220px] transition-all">
+<div>
+<h3 class="text-[15px] font-bold text-neutral-950 leading-snug mb-3">Zero-Leak Data Readiness: Sandboxing Database Writes in Autonomous Workflows</h3>
+<p class="text-[13px] leading-relaxed text-neutral-600 font-normal">Two-phase commit emulation, write-verification guardrails, and human escalation — without stalling throughput.</p>
+</div>
+</article>
+<article class="bg-white border border-neutral-200 rounded-2xl p-7 flex flex-col justify-between cursor-pointer min-h-[220px] transition-all">
+<div>
+<h3 class="text-[15px] font-bold text-neutral-950 leading-snug mb-3">2026 Enterprise Agentic Evaluation: LangGraph vs. Semantic Kernel vs. CrewAI</h3>
+<p class="text-[13px] leading-relaxed text-neutral-600 font-normal">100,000 multi-step tool calls stress-tested for state drift, memory leaks, and hallucinated arguments.</p>
+</div>
+</article>
+<article class="bg-white border border-neutral-200 rounded-2xl p-7 flex flex-col justify-between cursor-pointer min-h-[220px] transition-all">
+<div>
+<h3 class="text-[15px] font-bold text-neutral-950 leading-snug mb-3">Autonomous Catalog Crawling &amp; Dynamic Link Refactoring with Blog Refresher</h3>
+<p class="text-[13px] leading-relaxed text-neutral-600 font-normal">How semantic search matches broken links against 100k+ live SKUs in seconds — no manual review.</p>
+</div>
+</article>
+<article class="bg-white border border-neutral-200 rounded-2xl p-7 flex flex-col justify-between cursor-pointer min-h-[220px] transition-all">
+<div>
+<h3 class="text-[15px] font-bold text-neutral-950 leading-snug mb-3">Ontological Embeddings vs. Generic RAG: Eliminating Domain Hallucinations</h3>
+<p class="text-[13px] leading-relaxed text-neutral-600 font-normal">Building knowledge graphs that ground agents in regulated environments — clinical, pharma, tax.</p>
+</div>
+</article>
+</div>
+<div class="mt-6 text-[12.5px] text-neutral-500 font-normal">All blueprints are Apache 2.0. Custom workshops and implementation support available — ask us.
+    </div>
+</div>
+<div class="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 bg-[#E8E2FF]/60 rounded-full blur-3xl pointer-events-none -z-10"></div></section>
+<!-- END: BlueprintsAndCaseStudies -->
+<!-- END: BlueprintsAndCaseStudies -->
+<!-- BEGIN: WebinarsAndMasterclasses -->
+<!-- BEGIN: WebinarsAndMasterclasses -->
+<section class="w-full bg-[#F5F2FF] py-24 relative bg-gradient-to-b from-[#FFFFFF] via-[#F5F2FF] to-[#FFFFFF] overflow-hidden rounded-[28px]">
+<div class="max-w-[1140px] mx-auto px-6 sm:px-8">
+<h2 class="text-[26px] font-bold tracking-tight text-neutral-950 mb-7">Webinars &amp; Masterclasses</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+<article class="bg-white border border-neutral-200 rounded-2xl p-7 sm:p-8 cursor-pointer">
+<h3 class="text-[15.5px] font-bold text-neutral-950 leading-snug mb-3">Upcoming: Masterclass on Non-Drifting StateGraphs with Google ADK</h3>
+<p class="text-[13px] text-neutral-600 font-normal">Live, March 28.</p>
+</article>
+<article class="bg-white border border-neutral-200 rounded-2xl p-7 sm:p-8 cursor-pointer">
+<h3 class="text-[15.5px] font-bold text-neutral-950 leading-snug mb-3">On-demand: Executive Briefing</h3>
+<p class="text-[13px] text-neutral-600 font-normal">Why 80% of agent pilots stall before production.</p>
+</article>
+</div>
+</div>
+<div class="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 bg-[#E8E2FF]/60 rounded-full blur-3xl pointer-events-none -z-10"></div></section>
+<!-- END: WebinarsAndMasterclasses -->
+<!-- END: WebinarsAndMasterclasses -->
+<!-- BEGIN: CallToActionBanner -->
+<!-- BEGIN: CallToActionBanner -->
+<section class="max-w-[1140px] mx-auto px-6 sm:px-8 py-24 relative bg-gradient-to-b from-[#FFFFFF] via-[#F5F2FF] to-[#FFFFFF] overflow-hidden rounded-[28px]">
+<div class="bg-[#0B0B0B] border border-neutral-800 rounded-[28px] p-8 sm:p-14 text-white relative overflow-hidden">
+<div class="absolute -right-20 -top-20 w-80 h-80 bg-[#6C4DFF]/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="max-w-2xl relative">
+<h2 class="text-[32px] sm:text-[40px] font-bold leading-[1.12] tracking-tight mb-5">
+  Need tailored architecture blueprints for your proprietary data?
+</h2>
+<p class="text-[14px] sm:text-[15px] text-neutral-300 font-normal leading-relaxed mb-9">
+  Book a technical scoping session. We'll map your systems and send an execution roadmap in 5 days.
+</p>
+<div class="flex flex-wrap items-center gap-3">
+<a class="btn-brand-primary text-[13.5px] font-semibold px-6 py-2.5 rounded-full transition-all" href="#">
+  Schedule Architecture Review
+</a>
+<a class="bg-neutral-900 hover:bg-neutral-800 text-neutral-200 text-[13.5px] font-medium px-5 py-2.5 rounded-full transition-all border border-neutral-800" href="#">
+  Talk to Enterprise Engineering
+</a>
+</div>
+</div>
+</div>
+<div class="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 bg-[#E8E2FF]/60 rounded-full blur-3xl pointer-events-none -z-10"></div></section>
+<!-- END: CallToActionBanner -->
+<!-- END: CallToActionBanner -->
+</main>
+<!-- BEGIN: MainFooter -->
+<footer class="w-full bg-[#0B0B0B] border-t border-neutral-800 pt-16 pb-12 text-[13px] text-white">
+<div class="max-w-[1140px] mx-auto px-6 sm:px-8">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8 sm:gap-10 pb-16">
+<div class="col-span-2 md:col-span-1 pr-4">
+<span class="block text-[18px] font-bold tracking-tight text-white mb-4">RightAgents</span>
+<p class="text-neutral-400 leading-relaxed font-normal text-[12.5px]">
+  Building the Right Agents. Building Them Right. Building the Right Talent.
+</p>
+</div>
+<div>
+<h4 class="font-semibold text-white mb-3.5 text-[13px]">Solutions</h4>
+<ul class="space-y-2.5 text-neutral-400">
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="data.html">Data Intelligence</a></li>
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="workflow-automation.html">Workflow Automation</a></li>
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="agentic-integration.html">Agentic Integration</a></li>
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="custom-agent-development.html">Custom Agent Development</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-white mb-3.5 text-[13px]">Products</h4>
+<ul class="space-y-2.5 text-neutral-400">
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="blog-refresher.html">Blog Refresher</a></li>
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="blog-creator.html">Blog Creator</a></li>
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="pricing.html">Pricing</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-white mb-3.5 text-[13px]">Company</h4>
+<ul class="space-y-2.5 text-neutral-400">
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="resources.html">Resources</a></li>
+<li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="about.html">About</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-white mb-3.5 text-[13px]">Contact</h4>
+<ul class="space-y-2.5 text-neutral-400"><li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="mailto:ram@rightagents.ai">ram@rightagents.ai</a></li><li class=""><a class="hover:text-[#6C4DFF] transition-colors" href="mailto:hello@rightagents.ai">hello@rightagents.ai</a></li><li class="pt-1.5"><div class="flex items-center gap-3 text-neutral-400"><a aria-label="X" class="text-neutral-400 hover:text-[#6C4DFF] transition-colors inline-flex items-center justify-center" href="#"><svg class="w-[18px] h-[18px] fill-current" viewbox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a><a aria-label="LinkedIn" class="text-neutral-400 hover:text-[#6C4DFF] transition-colors inline-flex items-center justify-center" href="#"><svg class="w-[18px] h-[18px] fill-current" viewbox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"></path></svg></a><a aria-label="YouTube" class="text-neutral-400 hover:text-[#6C4DFF] transition-colors inline-flex items-center justify-center" href="#"><svg class="w-[18px] h-[18px] fill-current" viewbox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg></a><a aria-label="Instagram" class="text-neutral-400 hover:text-[#6C4DFF] transition-colors inline-flex items-center justify-center" href="#"><svg class="w-[18px] h-[18px] fill-current" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"></path></svg></a><a aria-label="Facebook" class="text-neutral-400 hover:text-[#6C4DFF] transition-colors inline-flex items-center justify-center" href="#"><svg class="w-[18px] h-[18px] fill-current" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg></a></div></li></ul>
+</div>
+</div>
+<div class="border-t border-neutral-800 pt-7 flex flex-col sm:flex-row items-center justify-between text-[12px] text-neutral-400 gap-4">
+<div class="">© 2026 RightAgents.ai. All rights reserved.</div>
+<div class="flex items-center space-x-2">
+<a class="hover:text-[#6C4DFF] transition-colors" href="#">Privacy</a>
+<span class="">·</span>
+<a class="hover:text-[#6C4DFF] transition-colors" href="#">Terms</a>
+<span class="">·</span>
+<a class="hover:text-[#6C4DFF] transition-colors" href="#">Contact</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+</body></html>
