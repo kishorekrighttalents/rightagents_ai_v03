@@ -1,5 +1,5 @@
 {
   "routes": [
-    { "src": "/", "dest": "/RightAgents(v5)" }
+    { "src": "/", "dest": "/home.html" }
   ]
 }
